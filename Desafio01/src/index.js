@@ -4,10 +4,10 @@ const app = express();
 
 app.use(express.json());
 
-let countReq = 0;
+
 
 app.use((req, res, next)=>{
-    console.log(++countReq);
+    console.count('Number of Requests');
     return next();
 });
 
@@ -15,7 +15,7 @@ function CheckIdProject(req, res, next){
     const {id} = req.params;
     let project = projects.find(proj => proj.id == id);
     if(!project){
-        return res.json({
+        return res.status(400).json({
             "err": "Project Id Not found"
         })
     }
