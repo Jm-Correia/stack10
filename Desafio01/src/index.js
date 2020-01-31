@@ -24,16 +24,34 @@ app.post('/projects', (req, res)=>{
     return res.json(projects);
 });
 
-app.put('/projetcs/:id', (req, res)=>{
+app.put('/projects/:id', (req, res)=>{
+    const {id} = req.params;
+    const {title} = req.body;
+
+    projects.map((project) => {
+        if(project.id == id){
+            project.title = title;
+        }
+    });
+
+    return res.json(projects);
 
 });
 
 app.delete('/projects/:id', (req, res) =>{
-
+    const {id} = req.params;
+    
+    const pos = projects.findIndex(proj => proj.id == id);
+    projects.splice(pos, 1);
+    return res.status(200).send();
 });
 
-app.get('/projects/:id/tasks', (req, res)=>{
-
+app.post('/projects/:id/tasks', (req, res)=>{
+    const {id} = req.params;
+    const {title} = req.body;
+    let project = projects.find(proj => proj.id == id);
+    project.tasks.push(title);
+    return res.json(projects);
 });
 
 app.listen(3000);
