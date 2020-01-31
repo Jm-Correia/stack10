@@ -4,6 +4,24 @@ const app = express();
 
 app.use(express.json());
 
+let countReq = 0;
+
+app.use((req, res, next)=>{
+    console.log(++countReq);
+    return next();
+});
+
+function CheckIdProject(req, res, next){
+    const {id} = req.params;
+    let project = projects.find(proj => proj.id == id);
+    if(!project){
+        return res.json({
+            "err": "Project Id Not found"
+        })
+    }
+    next();
+}
+
 const projects = [];
 
 app.get('/projects', (req, res)=>{
@@ -24,7 +42,7 @@ app.post('/projects', (req, res)=>{
     return res.json(projects);
 });
 
-app.put('/projects/:id', (req, res)=>{
+app.put('/projects/:id', CheckIdProject, (req, res)=>{
     const {id} = req.params;
     const {title} = req.body;
 
@@ -38,7 +56,7 @@ app.put('/projects/:id', (req, res)=>{
 
 });
 
-app.delete('/projects/:id', (req, res) =>{
+app.delete('/projects/:id', CheckIdProject, (req, res) =>{
     const {id} = req.params;
     
     const pos = projects.findIndex(proj => proj.id == id);
@@ -46,7 +64,7 @@ app.delete('/projects/:id', (req, res) =>{
     return res.status(200).send();
 });
 
-app.post('/projects/:id/tasks', (req, res)=>{
+app.post('/projects/:id/tasks', CheckIdProject, (req, res)=>{
     const {id} = req.params;
     const {title} = req.body;
     let project = projects.find(proj => proj.id == id);
