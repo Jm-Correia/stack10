@@ -1,7 +1,27 @@
+import * as YUP from 'yup';
 import User from '../models/User';
 
 class UserController {
     async store(req, res) {
+        const shema = YUP.object().shape({
+            name: YUP.string().required(),
+            email: YUP.string()
+                .email()
+                .required(),
+            password: YUP.string()
+                .min(6)
+                .required(),
+            provider: YUP.boolean(),
+        });
+
+        const errors = await shema.validate(req.body).catch(err => err.errors);
+
+        if (!(await shema.isValid(req.body))) {
+            return res
+                .status(400)
+                .json({ error: 'ValidationError', message: errors });
+        }
+
         const userExists = await User.findOne({
             where: { email: req.body.email },
         });
@@ -21,6 +41,29 @@ class UserController {
     }
 
     async update(req, res) {
+        const shema = YUP.object().shape({
+            name: YUP.string(),
+            email: YUP.string().email(),
+            oldPassword: YUP.string().min(6),
+            password: YUP.string()
+                .min(6)
+                .when('oldPassword', (oldPassword, field) =>
+                    oldPassword ? field.required() : field
+                ),
+            confirmPassword: YUP.string()
+                .min(6)
+                .when('password', (password, field) =>
+                    password
+                        ? field.required().oneOf([YUP.ref('password')])
+                        : field
+                ),
+            provider: YUP.boolean(),
+        });
+
+        if (!(await shema.isValid(req.body))) {
+            return res.status(400).json({ error: 'Validation Error' });
+        }
+
         const { oldPassword, email } = req.body;
 
         const user = await User.findByPk(req.userId);
