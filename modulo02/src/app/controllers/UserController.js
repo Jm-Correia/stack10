@@ -14,7 +14,13 @@ class UserController {
             provider: YUP.boolean(),
         });
 
-        const errors = await shema.validate(req.body).catch(err => err.errors);
+        const errors = await shema
+            .validate(req.body, {
+                strict: true,
+                abortEarly: false,
+                recursive: true,
+            })
+            .catch(err => err.errors);
 
         if (!(await shema.isValid(req.body))) {
             return res
@@ -60,8 +66,18 @@ class UserController {
             provider: YUP.boolean(),
         });
 
+        const errors = await shema
+            .validate(req.body, {
+                strict: true,
+                abortEarly: false,
+                recursive: true,
+            })
+            .catch(err => err.errors);
+
         if (!(await shema.isValid(req.body))) {
-            return res.status(400).json({ error: 'Validation Error' });
+            return res
+                .status(400)
+                .json({ error: 'ValidationError', message: errors });
         }
 
         const { oldPassword, email } = req.body;

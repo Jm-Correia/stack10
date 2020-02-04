@@ -8,11 +8,17 @@ class SessionController {
         const shema = YUP.object().shape({
             email: YUP.string()
                 .email()
-                .required(),
-            password: YUP.string().required(),
+                .required('Email is a required'),
+            password: YUP.string().required('Password is a required'),
         });
 
-        const errors = await shema.validate(req.body).catch(err => err.errors);
+        const errors = await shema
+            .validate(req.body, {
+                strict: true,
+                abortEarly: false,
+                recursive: true,
+            })
+            .catch(err => err.errors);
 
         if (!(await shema.isValid(req.body))) {
             return res
