@@ -1,6 +1,3 @@
-import express from 'express';
+import app from './app';
 
-const app = express();
-
-
-app.listen(4000);
+app.listen(4400);
