@@ -2,7 +2,7 @@
 
 ## FastFeet, *Etapa 1* de *4*
 
-### Este Desafio faz parte do bootCamp da *[Rocketseat - GoStack](https://rocketseat.com.br/)*
+### Este Desafio faz parte do bootCamp da *[Rocketseat - GoStack](https://rocketseat.com.br/gostack)*
 
 # Regras de Negócio:
 
@@ -112,7 +112,7 @@
 |POST |baseURL/recipients| Cadastrar Destinatários| Sim |
 |PUT |baseURL/recipients | Atualizar Destinatários| Sim |
 
-### *PS --> No Insomnia adicionar na aba Auth *Bearer Token* o token retornado no obter token*
+>  - No Insomnia adicionar na aba Auth *Bearer Token* o token retornado no obter token
 
 # Licença:
 
