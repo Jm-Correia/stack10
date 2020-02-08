@@ -9,7 +9,7 @@ class Recipients extends Model {
                 state: Sequelize.STRING,
                 zipcode: Sequelize.STRING,
                 country: Sequelize.STRING,
-                userId: Sequelize.INTEGER,
+                user_id: Sequelize.INTEGER,
             },
             {
                 sequelize,

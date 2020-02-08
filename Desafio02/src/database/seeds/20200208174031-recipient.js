@@ -4,7 +4,7 @@ module.exports = {
             'recipients',
             [
                 {
-                    userId: 1,
+                    user_id: 1,
                     address_line: '58 Dias Cardoso Street',
                     city: 'Recife',
                     state: 'Permanbuco',
