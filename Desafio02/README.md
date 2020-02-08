@@ -29,7 +29,7 @@
 >
 > ```JSON
 >{
-> "address_line" : "3009 College Avenue",
+> "address_line" : "3009 Regente Street",
 > "zipcode": "1ZN OU789",
 > "city": "Frederiction",
 > "state": "NB",
@@ -42,7 +42,7 @@
 > {
 >  "id": 5,
 >  "user_id": 1,
->  "address_line": "07 River Strett",
+>  "address_line": "107 Regente Street",
 >  "zipcode": "24 OU789",
 >  "city": "Frederiction",
 >  "state": "NB",
@@ -106,11 +106,13 @@
 > Aplicação rodando!!!
 
 ## Endpoints baseURL:*(http://localhost:4400)*
-|Metódo| URL| Descrição |
-|---- |---- | ---------|
-|POST |baseURL/session| Obter Token |
-|POST |baseURL/recipients| Cadastrar Destinatários|
-|PUT |baseURL/recipients | Atualizar Destinatários|
+|Metódo| URL| Descrição | Autenticação |
+|---- |---- | ---------|------ |
+|POST |baseURL/session| Obter Token | Não |
+|POST |baseURL/recipients| Cadastrar Destinatários| Sim |
+|PUT |baseURL/recipients | Atualizar Destinatários| Sim |
+
+### *PS --> No Insomnia adicionar na aba Auth *Bearer Token* o token retornado no obter token*
 
 # Licença:
 
