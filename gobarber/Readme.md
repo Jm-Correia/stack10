@@ -18,26 +18,9 @@
 > - [VsCode](https://code.visualstudio.com/)
 > - [Insomnia](https://insomnia.rest/)
 
-### Bibliotecas (*Libs*):
->  | Nome | Versão | Ambiente |
->  |------|-------|--------- |
->  |bcryptjs| __2.4.3__ | |
-> |express | __4.17.1__ | |
-> | jsonwebtoken | __8.5.1__| |
-> | pg | __7.18.1__| |
-> | pg-hstore | __2.3.3__| |
-> | sequelize |  __5.21.3__ | |
-> | YUP |  __0.28.1__ | |
-> | multer |  __1.4.2__ | |
-> |eslint| __6.8.0__|dev|
-> |eslint-config-airbnb-base|__14.0.0__|dev|
-> |eslint-config-prettier|__6.10.0__|dev|
-> |eslint-plugin-import|__2.20.1__|dev|
-> |eslint-plugin-prettier|__3.1.2__|dev|
-> |nodemon| __2.0.2__| dev|
-> |prettier| __1.19.1__| dev|
-> |sequelize-cli|__5.5.1__| dev|
-> |sucrase|__3.12.1__| dev|
+### Bibliotecas:
+
+> Para saber quais bibliotecas foram utilizadas [clique Aqui](Readme/Bibliotecas.md)
 
 # Executar Projeto:
 
@@ -65,11 +48,16 @@
 
 #### Abrir o terminal do vscode:
 
-> Instalar bibliotecas executando o comando:
+> Instalar bibliotecas:
 > ```sh
 > $ yarn
+> ```
+> Criar Banco de dados:
+> ```sh
 > $ yarn sequelize-cli db:migrate:all
-> $ yarn sequelize-cli db:seed:all
+> ```
+> Inciar Projeto:
+> ```sh
 > $ yarn dev
 >  ou
 > $ yarn dev:debug
@@ -94,44 +82,11 @@
 
 ## 1. Autenticação:
 
-> Permitir que o usuário se autentique utilizando e-mail e senha.
->
-> Exemplo:
-> ```JSON
->{
->   "email": "fulanodeTAL@gmail.com",
->	"password": "123456"
->}
->```
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/Autenticacao.md).
 
 ## 2. Usuários:
 
-### Cadastro / Atualizar:
-
-> Pode ser relizado o cadastro e atualização de usuário no sistema.
->
->
->  #### Exemplos:
->  - Cadastrar:
->
-> ```JSON
->{
->	"name": "FULANO de TAL",
->	"email": "fulanodeTAL@gmail.com",
->	"password": "123456"
->}
-> ```
-> - Atualizar:
-> ``` JSON
-> {
->   "name": "Fulano da Silva",
->	"email": "fulanoDaSilva@gmail.com",
->	"oldPassword": "123456",
->	"password": "123456",
->	"confirmPassword": "123456",
->	"avatar_id": 1
->}
-> ```
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/Usuarios.md).
 
 # Licença:
 
