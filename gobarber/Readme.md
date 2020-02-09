@@ -5,7 +5,7 @@
 > Este projeto é um serviço de agendamento para usuários marcarem uma hora na barbearia preferida.
 
 
-> Este projeto faz parte das aulas do bootCamp da *[Rocketseat - GoStack]>(https://rocketseat.com.br/gostack)*.
+> Este projeto faz parte das aulas do bootCamp da *[Rocketseat - GoStack](https://rocketseat.com.br/gostack)*.
 
 
 # Tecnologias
@@ -39,8 +39,12 @@
 > |sequelize-cli|__5.5.1__| dev|
 > |sucrase|__3.12.1__| dev|
 
-# Roda Projeto:
+# Executar Projeto:
 
+> Criar o banco de dados no docker utilizando o comando (LTS):
+> ```sh
+> $ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+> ```
 > Clone o projeto para sua maquina executando o comando:
 > ```Git
 >  git clone https://github.com/Jm-Correia/stack10.git
@@ -53,10 +57,6 @@
 > Instalar bibliotecas executando o comando:
 > ```sh
 > $ yarn
-> ```
-> Criar o banco de dados no docker usando o comando (LTS):
-> ```sh
-> $ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 > ```
 >  No terminal do vscode executar os comandos abaixo:
 > ```sh
@@ -87,12 +87,12 @@
 > Permitir que o usuário se autentique utilizando e-mail e senha.
 >
 > Exemplo:
-> ```
+> ```JSON
 >{
 >   "email": "fulanodeTAL@gmail.com",
 >	"password": "123456"
 >}
-
+>```
 
 ## 2. Usuários:
 
