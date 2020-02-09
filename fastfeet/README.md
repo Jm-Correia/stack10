@@ -112,7 +112,7 @@
 |POST |baseURL/recipients| Cadastrar Destinatários| Sim |
 |PUT |baseURL/recipients | Atualizar Destinatários| Sim |
 
->  - No Insomnia adicionar na aba Auth *Bearer Token* o token retornado no obter token
+>  - No Insomnia adicionar na aba Auth "*Bearer Token*" o token retornado no metodo *"obter token"*
 
 # Licença:
 
