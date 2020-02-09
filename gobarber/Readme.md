@@ -53,29 +53,39 @@
 > ```sh
 > $ cd gobarber/
 >```
+> Criar as pasta (*tmp/* e *tmp/uploads/*) na raiz do projeto:
+> ```sh
+> $ mkdir tmp && cd tmp && mkdir upload
 > ```
+
+> Retornar para raiz do projeto e executar o comando:
+> ```sh
+> $ code .
+> ```
+
+#### Abrir o terminal do vscode:
+
 > Instalar bibliotecas executando o comando:
 > ```sh
 > $ yarn
-> ```
->  No terminal do vscode executar os comandos abaixo:
-> ```sh
 > $ yarn sequelize-cli db:migrate:all
 > $ yarn sequelize-cli db:seed:all
 > $ yarn dev
 >  ou
 > $ yarn dev:debug
 > ```
->  - Pronto,
-> Aplicação rodando!!!
+- Pronto, Aplicação rodando!!!
 
 ## Endpoints baseURL:*(http://localhost:3333)*
+
+> __Para maiores detalhes verificar as rotas dentro do arquivo: [*Routes.js*](src/router.js)__
+
 |Metódo| URL| Descrição | Autenticação |
 |---- |---- | ---------|------ |
 |POST |baseURL/session| Obter Token | Não |
 |POST |baseURL/users| Cadastrar Usuário| Sim |
 |PUT |baseURL/users | Atualizar Usuário| Sim |
-|POST |baseURL/files| Upload do avatar (imagem)| Sim |
+|POST |baseURL/file| Upload do avatar (imagem)| Sim |
 
 
 >  - No Insomnia adicionar na aba Auth "*Bearer Token*" o token retornado no metodo *"obter token"*
