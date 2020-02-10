@@ -88,6 +88,10 @@
 
 > - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/Usuarios.md).
 
+## 3. Upload File:
+
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/upload.md).
+
 # Licença:
 
 ### [MIT](https://opensource.org/licenses/MIT)
