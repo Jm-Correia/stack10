@@ -9,6 +9,7 @@
 > | sequelize |  __5.21.3__ | |
 > | YUP |  __0.28.1__ | |
 > | multer |  __1.4.2__ | |
+> |date-fns| __2.9.0__| |
 > |eslint| __6.8.0__|dev|
 > |eslint-config-airbnb-base|__14.0.0__|dev|
 > |eslint-config-prettier|__6.10.0__|dev|
