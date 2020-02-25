@@ -1,8 +1,9 @@
 import * as YUP from 'yup';
-import { parseISO, startOfHour, isBefore } from 'date-fns';
+import { parseISO, startOfHour, isBefore, format } from 'date-fns';
 import Appointment from '../models/Appointment';
 import User from '../models/User';
 import File from '../models/File';
+import Notification from '../schemas/Notification';
 
 class AppointmentController {
     async index(req, res) {
@@ -38,14 +39,16 @@ class AppointmentController {
             date: YUP.date().required(),
         });
 
-        const errors = await schema
-            .validate(req.body, {
-                abortEarly: false,
-                recursive: true,
-            })
-            .catch(err => err.errors);
-
         if (!(await schema.isValid(req.body))) {
+            const errors = await schema
+                .validate(req.body, {
+                    strict: false,
+                    abortEarly: false,
+                    recursive: true,
+                })
+                .catch(err => {
+                    return err.errors;
+                });
             return res
                 .status(400)
                 .json({ error: 'ValidationError', message: errors });
@@ -98,6 +101,18 @@ class AppointmentController {
             user_id: req.userId,
             provider_id,
             data: date,
+        });
+
+        /**
+         * Notify appointment Provider
+         */
+
+        const user = await User.findByPk(req.userId);
+        const dia = format(hourStart, " dd 'de' MMMM', às' H:mm'h'");
+
+        await Notification.create({
+            content: `Novo Agendamento de ${user.name} para dia ${dia}`,
+            user: provider_id,
         });
 
         return res.json(appointments);

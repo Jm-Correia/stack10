@@ -92,6 +92,19 @@
 
 > - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/upload.md).
 
+## 4. Provedor do serviço:
+
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/upload.md).
+
+## 5. Agendamento:
+
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/upload.md).
+
+## 6. Consultar Agenda (Como provedor):
+
+> - Para visualizar o exemplo [clique aqui](Readme/regrasNegocio/upload.md).
+
+
 # Licença:
 
 ### [MIT](https://opensource.org/licenses/MIT)

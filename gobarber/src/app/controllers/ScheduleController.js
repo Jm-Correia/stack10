@@ -1,4 +1,4 @@
-import { startOfDay, endOfDay, parseISO } from 'date-fns';
+import { startOfDay, endOfDay, parseISO, formatISO } from 'date-fns';
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
 import User from '../models/User';
@@ -15,8 +15,8 @@ class ScheduleController {
             });
         }
 
-        const { data } = req.query;
-        const parseDate = parseISO(data);
+        const { data = formatISO(new Date()) } = req.query;
+        const parseDate = parseISO(data, { additionalDigits: 0 });
 
         const appointments = await Appointment.findAll({
             where: {
