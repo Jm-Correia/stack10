@@ -4,7 +4,8 @@ import Appointment from '../models/Appointment';
 import User from '../models/User';
 import File from '../models/File';
 import Notification from '../schemas/Notification';
-import Mail from '../../lib/Mail';
+import Queue from '../../lib/Queue';
+import CancellationMail from '../jobs/CancellationMail';
 
 class AppointmentController {
     async index(req, res) {
@@ -148,16 +149,7 @@ class AppointmentController {
                 error: 'You can only cancel appointments 2 hours in advence.',
             });
         }
-        await Mail.sendMail({
-            to: `${appointment.provider.name} <${appointment.provider.email}>`,
-            subject: 'Agendamento Cancelado',
-            template: 'cancellation',
-            context: {
-                provider: appointment.provider.name,
-                user: appointment.user.name,
-                data: format(appointment.data, " dd 'de' MMMM', às' H:mm'h'"),
-            },
-        });
+        await Queue.add(CancellationMail.key, { appointment });
 
         appointment.canceled_at = new Date();
         await appointment.save();
