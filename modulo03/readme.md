@@ -19,7 +19,7 @@
 > ```
 > Abra seu browser Preferido e coloque 
 > 
-    > - url: http://localhost:8080
+>  - url: http://localhost:8080
 >
 > Será exebido:
 > ![Sucesso](src/imagens/imagem.png)
