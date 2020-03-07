@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import profile from './imagens/profile.jpg';
+import profile from './imagens/profile.webp';
 
 function App(){
     return <img width='400' src={profile}/>
