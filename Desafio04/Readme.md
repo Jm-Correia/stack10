@@ -69,18 +69,20 @@
 #### 4º
 
 ##### Vamos configurar o webpack e babel
->Crie os arquivos **babel.config.js** e **webpack.config.js**. ![ARQUIVOS](imagens/imagem2.png)
+>Crie os arquivos **babel.config.js** e **webpack.config.js**. 
+
+![ARQUIVOS](imagens/imagem2.png)
 
 > Abra o **babel.config.js**
 > _Vamos utilizar o que foi instalado. O preset-env e preset-react são responsáveis por alterar nosso código no momento da compilação deixando ele compatível com a versão anterior do ECMASCRIPT._
 > 
 > Vamos escrever no babel.config.js: 
->  ```JSON
+>  ```JavaScript
 > module.exports={
 >    presets:[
->        '@babel/preset-env',
+>       '@babel/preset-env',
 >        '@babel/preset-react'
->    ],    
+>   ],    
 >}
 >```
 >
@@ -88,7 +90,7 @@
 > Vamos criar o arquivo **index.js** que será o arquivo de entrada para a nossa aplicação.
 >
 >   Abra o **webpack.config.js**:
->  ```JSON
+>  ```JavaScript
 > module.exports={
 >const path = require('path');
 >
@@ -126,7 +128,7 @@
 > ```JSON
 > "scripts": {
 >    "build": "webpack --mode production",
->    "dev": "webpack-dev-server --mode development" // iremos utilizar para rodar nosso projeto em desenvolvimento.
+>    "dev": "webpack-dev-server --mode development" //iremos utilizar para rodar nosso projeto em desenvolvimento.
 >  },
 >```
 
