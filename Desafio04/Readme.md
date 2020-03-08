@@ -1,146 +1,31 @@
-## Configuração Workspace
+## Desafio 04 
 
-> Foi utilizado o [Yarn](https://yarnpkg.com/getting-started). Utilize o site para maiores informações.
+> Este desafio foi criado a partir do curso da [rocketseat](https://github.com/Rocketseat/bootcamp-gostack-desafio-04/blob/master/README.md#desafio-04-introdu%C3%A7%C3%A3o-ao-react).
+> Para este desafio será simulado uma pagina do facebook para praticamos a componetização do react utilizando classes e funções.
+> Além de utilizar props e state dentro da propria aplicação. Não será utilizado banco de dados neste momento.
 
-#### Passos
+#### Configuração do workspace do zero
 
-#### 1º:
-> Dentro do seu workspace crie o diretorio para seu projeto.
+> Para configurar o projeto do zero utilizei os seguintes passos descritos no link [Configuração em alguns passos](/readme/configuration.md)
+
+#### Caso queria rodar o que já esta pronto
+
+> Após realizar o clone.
+> Navegue até o diretorio desafio04 e execute os seguintes comandos:
 > ```sh
-> $ mkdir <PROJETO-NAME> 
+>  $ yarn
+>  $ yarn dev
 > ```
-> Utilizei o nome desafio04 uma vez que estou no curso do [RocketSeat](https://github.com/Rocketseat/bootcamp-gostack-desafio-04/blob/master/README.md#desafio-04-introdu%C3%A7%C3%A3o-ao-react) e este desafio esta na ordem 04 e é um desafio.
->
-> No terminal:
-> ```sh
-> $ cd <PROJETO-NAME>
-> $ yarn init
->$ question name (testdir): PROJETO-NAME
->$ question version (1.0.0): VERSÂO
->$ question description: Descricao-PROJETO
->$ question entry point (index.js):
->$ question git repository: URL DO GIT DO PROJETO
->$ question author: SEU NOME
->$ question license (MIT):
->$ question private:
-> $ success Saved package.json
-> $ Done in 87.70s.
->```
+> Abra o browser de preferência e digite
+> [localhost:8080/]()
+> Pronto a aplicação já aparecerá para você.
 
-#### 2º
->Abra seu [vsCode](https://code.visualstudio.com/). Utilizo o vscode por preferência, porém vc deve utilizar o de sua preferência.
->
-> No terminal:
->```sh
-> $ code .
-> ```
-> O vsCode irá abrir dentro do diretorio que foi yarn foi inicializado.
-> Conforme Figura abaixo:
-> ![VSCODE-INICIAL](imagens/imagem1.png)
-> Agora abra o terminal dentro do vsCode.
+>Tipo da Licença:
+> [MIT](https://opensource.org/licenses/MIT)
 
-##### Realizando configurações iniciais
-#### 3º
 
-> Vamos instalar como dependencia de desenvolvimento as seguintes bibliotecas:
- - @babel/core
- - @babel/preset-env
- - @babel/preset-react
- - babel-loader
- - webpack
- - webpack-cli
- - webpack-dev-server
 
-> No terminal:
->```sh
-> $ yarn add @babel/core @babel/preset-env @babel/preset-react babel-loader -D
-> Done in 3.57s.
-> $ yarn add webpack webpack-cli webpack-dev-server -D
-> Done in 7.71s.
-> ```
 
->Agora vamos instalar como dependência as bibliotecas do **react** e **react-dom**:
-> No terminal:
->```sh
-> $ yarn add react react-dom
-> Done in 2.71s.
-> ```
-
-#### 4º
-
-##### Vamos configurar o webpack e babel
->Crie os arquivos **babel.config.js** e **webpack.config.js**. 
-
-![ARQUIVOS](imagens/imagem2.png)
-
-> Abra o **babel.config.js**
-> _Vamos utilizar o que foi instalado. O preset-env e preset-react são responsáveis por alterar nosso código no momento da compilação deixando ele compatível com a versão anterior do ECMASCRIPT._
-> 
-> Vamos escrever no babel.config.js: 
->  ```JavaScript
-> module.exports={
->    presets:[
->       '@babel/preset-env',
->        '@babel/preset-react'
->   ],    
->}
->```
->
-> Precisamos neste momento criar um diretorio chamado **src** está pasta é responśavel por armazenar todo código javaScript do nosso projeto.
-> Vamos criar o arquivo **index.js** que será o arquivo de entrada para a nossa aplicação.
->
->   Abra o **webpack.config.js**:
->  ```JavaScript
-> module.exports={
->const path = require('path');
->
->module.exports={
->    entry: path.resolve(__dirname, 'src', 'index.js'), //Entrada da nossa aplicação
->    output:{
->        path: path.resolve(__dirname, 'public'),
->        filename: 'bundle.js' //Onde será jogado nosso arquivo compilado
->    },
->  devServer:{
->        contentBase:path.resolve(__dirname,'public'),
->    },
->   module:{ // Addcionamos as regras para transpilação 
->       rules:[
->               {
->                   test: /\.js$/,
->                   exclude: /node_modules/,
->                   use:{
->                          loader: 'babel-loader
->                       } 
->               },
->               {
->                //css, imagem, ...
->               },
->           ]
->   }  
->}
->```
-
-#### 5º
-##### Configurar package.json _"Scripts"_
-
-> Dentro do arquivo package.json vamos adicionar a configuração que vai possibilitar realizar a compilação do nosso projeto.
-> Agora devemos adicionar a seguinte instrução:
-> ```JSON
-> "scripts": {
->    "build": "webpack --mode production",
->    "dev": "webpack-dev-server --mode development" //iremos utilizar para rodar nosso projeto em desenvolvimento.
->  },
->```
-
-#### 6º
-##### Criar o Index.html
-
-> Antes de mais nada precisamos criar o diretório public que será responsável por armazenar nosso códgio compilado, através do arquivo **bundle.js** (*Configuramos no webpack.config.js* anteriormente).
-> Dentro da pasta public vamos criar o arquivo ***index.html***.
-> ```html
->  <div id='App'></div> <!--Dentro do body adicionamos a div e o script-->
->  <script src="bundle.js"></script>
->```
 
 
 
