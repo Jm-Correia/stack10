@@ -6,7 +6,7 @@
 
 #### Configuração do workspace do zero
 
-> Para configurar o projeto do zero utilizei os seguintes passos descritos no link [Configuração em alguns passos](readme/configuration.md)
+> Para configurar o projeto do zero utilizei os seguintes passos descritos no link [Configuração em alguns passos](readme/configuraction.md)
 
 #### Caso queria rodar o que já esta pronto
 

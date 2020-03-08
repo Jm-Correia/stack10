@@ -173,7 +173,7 @@
 > Após a messagem: *ℹ ｢wdm｣: Compiled successfully.* 
 > abra o browser e digite [localhost:8080]()
 >Pronto você visualizará conforme a imagem abaixo: 
-![Hello Facebook](../imagens/imagem3.png)
+![Hello Facebook](imagens/imagem3.png)
 __________________
 - [Voltar](../Readme.md)
 __________________
