@@ -7,18 +7,17 @@ import PostList from './PostList';
 class NavBar extends Component{
     render(){
         return (
-        <>
+        <div>
         <header>
-            <button class="facebook">Facebook</button>
+            <button className="facebook">Facebook</button>
             <nav>
-                <ul class="nav__links">
+                <ul className="nav__links">
                     <li><a href="#"> Meu Perfil</a></li>
                 </ul>
             </nav>
-            <img class="account" src={profile}/>
+            <img className="account" src={profile}/>
         </header>
-         <PostList/>
-        </>
+        </div>
         );
     }
 }

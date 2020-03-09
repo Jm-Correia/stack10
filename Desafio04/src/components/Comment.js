@@ -4,18 +4,17 @@ import './css/comment.css';
 
 class Comment extends Component{
    
+    static defaultProps={
+        avatar: Account
+    }
 
     render(){
         return(
-        <div class="comment">
-			<div class="img">
-				<img src={Account} alt="Avatar"/>
+        <div className="comment">
+			<div className="img">
+				<img src={this.props.avatar} alt="Avatar"/>
 			</div>
-			<textarea rows="3" readonly="true">
-                Lembresse que é uma tecnologia disrupitiva e
-                Ainda tem, os smart contrats.
-                Vamos virar tudo ancap!!!
-                </textarea>
+			<textarea rows="4" readOnly defaultValue={this.props.coment}/>
 
 		</div>
         );
