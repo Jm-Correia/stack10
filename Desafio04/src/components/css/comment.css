@@ -1,0 +1,27 @@
+
+.comment{
+	font-family: "Montserrat", sans-serif;
+	margin-left: 10px;
+	display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.comment img{
+	border-radius: 50px;
+	width: 45px;
+	height: 45px;
+	padding: 5px;
+}
+
+.comment textarea{
+  padding: 10px; 
+  font-size: 16px;
+  width: 90%;
+  color: #000;
+  resize: none;
+  border: 0;
+  background-color: #D3D3D3;
+  border-radius: 15px;
+  text-indent: 10px;
+}

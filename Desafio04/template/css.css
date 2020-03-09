@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: #D3D3D3;
+}
+
+li, a, img {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	color: white;
+	text-decoration: none;
+
+}
+
+header{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 15px 10%;
+	background-color: #4169E1;
+}
+
+.facebook{
+	font-family: "Montserrat", sans-serif;
+	font-size: 45px;
+	color: white;
+	margin-right: auto;
+	background-color: #4169E1;
+	border: 0;
+
+}
+.nav__links{
+	list-style: none;
+	
+}
+.nav__links li{
+	display: inline-block;
+	color: white;
+	font-size: 14px;
+	padding: 0px 20px;
+	background-color: #4169E1;
+}
+.nav__links li a {
+	background-color: #4169E1;
+}
+
+.nav__links li a:hover{
+	color: #0008a9;
+}
+
+.account{
+	padding: 9px 25px;
+	cursor: pointer;
+	background-color: #4169E1;
+}
+
+.content{
+  padding: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 70%;
+  margin: auto;
+  background-color: #F5FFFA;
+  margin-bottom: 15px;
+}
+
+.card{
+	font-family: "Montserrat", sans-serif;
+	margin-left: 10px;
+	display: flex;
+    flex-wrap: wrap;
+}
+
+.card img{
+	border-radius: 50px;
+}
+
+.card textarea{
+  display: inline-block; 
+  font-size: 16px;
+  width: 90%;
+  color: #000;
+  resize: none;
+  border: 0;
+
+}
+.autor{
+	padding: 5px;
+}
+
+.autor label{
+	top:5px;
+	font-size: 20px;
+}
+.autor small{
+	display: flex;
+	text-align: bottom;
+
+}
+
+.comment{
+	font-family: "Montserrat", sans-serif;
+	margin-left: 10px;
+	display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.comment img{
+	border-radius: 50px;
+	width: 45px;
+	height: 45px;
+	padding: 5px;
+}
+
+.comment textarea{
+  padding: 10px; 
+  font-size: 16px;
+  width: 90%;
+  color: #000;
+  resize: none;
+  border: 0;
+  background-color: #D3D3D3;
+  border-radius: 15px;
+  text-indent: 10px;
+}

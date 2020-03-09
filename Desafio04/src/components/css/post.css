@@ -1,0 +1,42 @@
+.content{
+    padding: 10px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    margin: auto;
+    background-color: #F5FFFA;
+    margin-bottom: 15px;
+  }
+  
+  .card{
+      font-family: "Montserrat", sans-serif;
+      margin-left: 10px;
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  .card img{
+      border-radius: 50px;
+  }
+  
+  .card textarea{
+    display: inline-block; 
+    font-size: 16px;
+    width: 90%;
+    color: #000;
+    resize: none;
+    border: 0;
+  
+  }
+  .autor{
+      padding: 5px;
+  }
+  
+  .autor label{
+      top:5px;
+      font-size: 20px;
+  }
+  .autor small{
+      display: flex;
+      text-align: bottom;
+  
+  }
