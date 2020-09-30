@@ -1,18 +1,22 @@
 import React from 'react';
-import GlobalStyle from './styles/global';
-import SignIn from './pages/Signin/index';
-//import SignUp from './pages/Signup/index';
+import {BrowserRouter as Router} from 'react-router-dom';
 
-import {AuthProvider} from './hooks/AuthContext';
-import ToastContainer from './components/Toast';
+import GlobalStyle from './styles/global';
+
+import Routes from './routes/index'
+
+import AppProvider from './hooks/index';
+
+
 const App: React.FC = () =>(
-  <>
-  <AuthProvider>
-    <SignIn/>
-  </AuthProvider>
-  <ToastContainer/>
-  <GlobalStyle/>
-  </>
+  <Router>
+  
+    <AppProvider>
+      <Routes/>
+    </AppProvider>
+  
+    <GlobalStyle/>
+  </Router>
 )
 
 export default App;

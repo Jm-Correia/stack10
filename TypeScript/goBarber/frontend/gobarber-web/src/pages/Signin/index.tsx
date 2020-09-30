@@ -1,11 +1,12 @@
 import React,{useCallback, useRef} from 'react';
 import {FiLogIn, FiMail, FiLock} from 'react-icons/fi'
+import {Link} from 'react-router-dom';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
 import * as Yup from 'yup';
 
-
 import {useAuth} from '../../hooks/AuthContext';
+import {useToast} from '../../hooks/ToastContext';
 import getValidationErros from '../../util/getValidationErros';
 
 import logoImg  from '../../assets/logo.svg';
@@ -22,7 +23,9 @@ interface SignInFormData{
 
 const SignIn: React.FC = () => {
     const {signIn} = useAuth();
+    const {addToast} = useToast();
     const formRef = useRef<FormHandles>(null);
+    
     const handleSubmit = useCallback(async (data:SignInFormData) => {
         try{
             formRef.current?.setErrors({})
@@ -38,7 +41,7 @@ const SignIn: React.FC = () => {
             await schema.validate(data, {
                 abortEarly: false
             });
-            signIn({
+            await signIn({
                 email: data.email,
                 password: data.password
             });
@@ -46,9 +49,15 @@ const SignIn: React.FC = () => {
            if(err instanceof Yup.ValidationError){
                 const erros = getValidationErros(err);
                 formRef.current?.setErrors(erros)
-           }
+           }else{
+            addToast({
+                type: 'error',
+                    title: 'Erro na Autenticação',
+                    description: 'Email ou senha invalidos.'
+                });
+            }
         }
-     },[signIn]);
+     },[addToast, signIn]);
 
     return (
     <Container>
@@ -61,10 +70,10 @@ const SignIn: React.FC = () => {
                 <Button type="submit">Entrar</Button>
                 <a href="forgot">Esqueci minha senha</a>
             </Form>
-            <a href="New">
+            <Link to="signup">
                 <FiLogIn/>
                 Criar Conta
-                </a>
+                </Link>
         </Content>
         <Background></Background>
     </Container>
