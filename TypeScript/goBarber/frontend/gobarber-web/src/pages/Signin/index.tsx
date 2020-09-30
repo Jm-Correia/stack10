@@ -1,20 +1,20 @@
 import React,{useCallback, useRef} from 'react';
 import {FiLogIn, FiMail, FiLock} from 'react-icons/fi'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {Form} from '@unform/web';
 import {FormHandles} from '@unform/core';
 import * as Yup from 'yup';
 
 import {useAuth} from '../../hooks/AuthContext';
 import {useToast} from '../../hooks/ToastContext';
+
 import getValidationErros from '../../util/getValidationErros';
-
 import logoImg  from '../../assets/logo.svg';
-
-import {Container, Content, Background} from './styles'
-
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+
+
+import {Container, Content, Background} from './styles'
 
 interface SignInFormData{
     email:string;
@@ -25,7 +25,8 @@ const SignIn: React.FC = () => {
     const {signIn} = useAuth();
     const {addToast} = useToast();
     const formRef = useRef<FormHandles>(null);
-    
+    const history = useHistory();
+
     const handleSubmit = useCallback(async (data:SignInFormData) => {
         try{
             formRef.current?.setErrors({})
@@ -45,6 +46,7 @@ const SignIn: React.FC = () => {
                 email: data.email,
                 password: data.password
             });
+            history.push('/dashboard')
         }catch(err){
            if(err instanceof Yup.ValidationError){
                 const erros = getValidationErros(err);
@@ -57,7 +59,7 @@ const SignIn: React.FC = () => {
                 });
             }
         }
-     },[addToast, signIn]);
+     },[addToast, history, signIn]);
 
     return (
     <Container>
